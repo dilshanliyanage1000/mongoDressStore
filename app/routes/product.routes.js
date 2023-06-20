@@ -28,9 +28,10 @@ module.exports = app => {
   
     router.delete("/:id", products.delete);
   
-    // Delete all Products
+    // Display products based on keyword
   
-    router.delete("/", products.deleteAll);
+    router.get("?name=", products.findBasedOnKeyword);
+
   
     app.use('/api/products', router);
   
