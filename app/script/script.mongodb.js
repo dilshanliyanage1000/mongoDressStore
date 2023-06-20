@@ -1,6 +1,16 @@
 // Select the database to use.
 use('DressStore');
 
+db.getCollection('categories').insertMany(
+    [{
+        "name": "Men"
+    }, {
+        "name": "Women"
+    }, {
+        "name": "Teens"
+    }]
+);
+
 // Insert a few documents into the sales collection.
 db.getCollection('products').insertMany(
     [{
