@@ -183,28 +183,3 @@ exports.findAllPublished = (req, res) => {
             });
         });
 };
-
-// FIND PRODUCTS BASED ON KEYWORDS
-
-exports.findBasedOnKeyword = (req, res) => {
-
-    const name = req.params.name;
-
-    var condition = name ? {
-        name: {
-            $regex: new RegExp(name),
-            $options: "i"
-        }
-    } : {};
-
-    Product
-        .find(condition)
-        .then(data => {
-            res.send(data);
-        })
-        .catch(err => {
-            res.status(500).send({
-                message: err.message || "Some error occurred while retrieving products."
-            });
-        });
-};
