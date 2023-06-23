@@ -28,6 +28,10 @@ module.exports = app => {
   
     router.delete("/:id", products.delete);
 
+    // Delete All products
+    
+    router.delete("/",products.deleteAll)
+
   
     app.use('/api/products', router);
   
